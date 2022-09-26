@@ -5,11 +5,11 @@ import CowbellSound from './cowbell-latin-hit.wav'
 // src for Howl is ./public/sound.wav for dev
 // and ./sound.wav for prod
 var bell = new Howl({
-  src: [ClaveSound]
+  src: [CowbellSound]
 });
 
 var sound = new Howl({
-  src: [CowbellSound]
+  src: [ClaveSound]
 });
 
 export const musicArray = [
