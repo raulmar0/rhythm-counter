@@ -1,6 +1,7 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import { setupCounter } from './counter.js'
+import { musicArray } from './musicArray'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -22,16 +23,6 @@ document.querySelector('#app').innerHTML = `
 const numinput = window.document.getElementById('numinput');
 const titulo = document.getElementById('title');
 
-import {Howl, Howler} from 'howler';
-
-var bell = new Howl({
-  src: ['cowbell-latin-hit.wav']
-});
-
-var sound = new Howl({
-  src: ['clave6.wav']
-});
-
 console.log('sdfa')
 
 numinput.addEventListener('input', (e) => {
@@ -41,107 +32,10 @@ numinput.addEventListener('input', (e) => {
 var count = 0,
 time = numinput.value;
 
-let mockupArray = [
-  {
-    fun: () => {
-      console.log(1)
-      bell.play()
-    }
-  },
-  {
-    fun: () => {
-      console.log(2)
-    }
-  },
-  {
-    fun: () => {
-      console.log(3)
-      sound.play()
-    }
-  },
-  {
-    fun: () => {
-      console.log(4)
+
+console.log(musicArray)
 
 
-    }
-  },
-  {
-    fun: () => {
-      sound.play()
-      console.log(5)
-      bell.play()
-
-    }
-  },
-  {
-    fun: () => {
-      console.log(6)
-    }
-  },
-  {
-    fun: () => {
-      console.log(7)
-    }
-  },
-  {
-    fun: () => {
-      console.log(8)
-    }
-  },
-  {
-    fun: () => {
-      sound.play()
-      bell.play()
-
-      console.log(9)
-    }
-  },
-  {
-    fun: () => {
-      console.log(10)
-    }
-  },
-  {
-    fun: () => {
-      console.log(11)
-    }
-  },
-  {
-    fun: () => {
-      console.log(12)
-      sound.play()
-
-    }
-  },
-  {
-    fun: () => {
-      console.log(13)
-      bell.play()
-
-    }
-  },
-  {
-    fun: () => {
-      console.log(14)
-    }
-  },
-  {
-    fun: () => {
-      console.log(15)
-      sound.play()
-
-    }
-  },
-  {
-    fun: () => {
-      console.log(16)
-    }
-  },
-
-]
-
-console.log(mockupArray)
 
 function timeout() {
   setTimeout(function () {
@@ -149,13 +43,18 @@ function timeout() {
       count = 0;
     }
     titulo.innerHTML = count;
-    mockupArray[count].fun()
-    
+    musicArray[count].fun()
+
+
     count += 1;
+
+
     timeout();
   }, time);
 }
 timeout();
+
+
 
 
 
