@@ -24,6 +24,9 @@ const titulo = document.getElementById('title');
 
 import {Howl, Howler} from 'howler';
 
+var bell = new Howl({
+  src: ['cowbell-latin-hit.wav']
+});
 
 var sound = new Howl({
   src: ['clave6.wav']
@@ -42,6 +45,7 @@ let mockupArray = [
   {
     fun: () => {
       console.log(1)
+      bell.play()
     }
   },
   {
@@ -66,6 +70,7 @@ let mockupArray = [
     fun: () => {
       sound.play()
       console.log(5)
+      bell.play()
 
     }
   },
@@ -87,6 +92,7 @@ let mockupArray = [
   {
     fun: () => {
       sound.play()
+      bell.play()
 
       console.log(9)
     }
@@ -111,6 +117,7 @@ let mockupArray = [
   {
     fun: () => {
       console.log(13)
+      bell.play()
 
     }
   },
