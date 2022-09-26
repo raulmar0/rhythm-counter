@@ -42,11 +42,11 @@ function timeout() {
     if (count === 16) {
       count = 0;
     }
-    titulo.innerHTML = count;
     musicArray[count].fun()
-
-
+    
+    
     count += 1;
+    titulo.innerHTML = count%2===0 ? titulo.innerHTML : (count+1)/2;
 
 
     timeout();
