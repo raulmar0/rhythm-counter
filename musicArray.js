@@ -1,14 +1,15 @@
 import {Howl, Howler} from 'howler';
-
+import ClaveSound from './clave6.wav'
+import CowbellSound from './cowbell-latin-hit.wav'
 
 // src for Howl is ./public/sound.wav for dev
 // and ./sound.wav for prod
 var bell = new Howl({
-  src: ['./cowbell-latin-hit.wav']
+  src: [ClaveSound]
 });
 
 var sound = new Howl({
-  src: ['./clave6.wav']
+  src: [CowbellSound]
 });
 
 export const musicArray = [
