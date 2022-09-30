@@ -13,6 +13,7 @@ var sound = new Howl({
 });
 
 export const musicArray = [
+  // 1.1
   {
     fun: () => {
       console.log(1)
@@ -20,12 +21,14 @@ export const musicArray = [
 
     }
   },
+  // 1.2
   {
     fun: () => {
       console.log(2)
 
     }
   },
+  // 2.1
   {
     fun: () => {
       console.log(3)
@@ -33,6 +36,7 @@ export const musicArray = [
 
     }
   },
+  // 2.2
   {
     fun: () => {
       console.log(4)
@@ -40,6 +44,7 @@ export const musicArray = [
 
     }
   },
+  // 3.1
   {
     fun: () => {
       sound.play()
@@ -48,23 +53,27 @@ export const musicArray = [
 
     }
   },
+  // 3.2
   {
     fun: () => {
       console.log(6)
 
     }
   },
+  // 4.1
   {
     fun: () => {
       console.log(7)
 
     }
   },
+  // 4.2
   {
     fun: () => {
       console.log(8)
     }
   },
+  // 5.1
   {
     fun: () => {
       sound.play()
@@ -73,17 +82,20 @@ export const musicArray = [
       console.log(9)
     }
   },
+  // 5.2
   {
     fun: () => {
       console.log(10)
     }
   },
+  // 6.1
   {
     fun: () => {
       console.log(11)
 
     }
   },
+  // 6.2
   {
     fun: () => {
       console.log(12)
@@ -91,6 +103,7 @@ export const musicArray = [
 
     }
   },
+  // 7.1
   {
     fun: () => {
       console.log(13)
@@ -99,11 +112,13 @@ export const musicArray = [
 
     }
   },
+  // 7.2
   {
     fun: () => {
       console.log(14)
     }
   },
+  // 8.1
   {
     fun: () => {
       console.log(15)
@@ -112,6 +127,7 @@ export const musicArray = [
 
     }
   },
+  // 8.2
   {
     fun: () => {
       console.log(16)

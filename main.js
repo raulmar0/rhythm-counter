@@ -50,7 +50,7 @@ function timeout() {
 
 
     timeout();
-  }, time);
+  }, ((60*1000)/time)/2);
 }
 timeout();
 
