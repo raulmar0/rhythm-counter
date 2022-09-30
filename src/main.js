@@ -9,26 +9,27 @@ const COUNT_LIMIT = NUMBER_OF_BEATS * NUMBER_OF_SUBBEATS;
 
 
 document.querySelector('#app').innerHTML = `
-<h1 id="title">0</h1>
+<h1 id="title">Rhythm Counter</h1>
+<p id="countnumber">0</p>
 <div class="input-container">
   <input type="range" id="numinput-slider" value="250" min="40" max="250" step="5"/>
   <input type="number" id="numbox"  value="250" />
+  <button id="toggleplay">Play</button>
 </div>
-<button id="toggleplay">Play</button>
 
 `;
-const numinput = document.getElementById('numinput-slider');
-const titulo = document.getElementById('title');
+const numInput = document.getElementById('numinput-slider');
+const countNum = document.getElementById('countnumber');
 const numbox = document.getElementById('numbox');
 const togglePlay = document.getElementById('toggleplay')
 
 let count = 0;
-let time = numinput.value;
+let time = numInput.value;
 let realBpm = ((MINUTE_IN_MS)/time)/NUMBER_OF_SUBBEATS;
 let isPlaying = false
 let timer = null
 
-numinput.addEventListener('input', (e) => {
+numInput.addEventListener('input', (e) => {
   time = e.target.value;
   numbox.value = e.target.value
   realBpm = ((MINUTE_IN_MS)/time)/NUMBER_OF_SUBBEATS;
@@ -59,6 +60,6 @@ const tick = () => {
   musicArray[count].fun()
   
   count++;
-  titulo.innerHTML = count % 2 === 0 ? titulo.innerHTML : (count+1)/2;
+  countNum.innerHTML = count % 2 === 0 ? countNum.innerHTML : (count+1)/2;
 }
 

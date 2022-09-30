@@ -1,6 +1,6 @@
 import {Howl, Howler} from 'howler';
-import ClaveSound from './clave6.wav'
-import CowbellSound from './cowbell-latin-hit.wav'
+import ClaveSound from './assets/clave6.wav'
+import CowbellSound from './assets/cowbell-latin-hit.wav'
 
 // src for Howl is ./public/sound.wav for dev
 // and ./sound.wav for prod
