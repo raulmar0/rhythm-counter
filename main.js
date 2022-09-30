@@ -1,61 +1,64 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
 import { musicArray } from './musicArray'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/sound-test/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
-const numinput = window.document.getElementById('numinput');
-const titulo = document.getElementById('title');
+const MINUTE_IN_MS = 60 * 1000;
+const NUMBER_OF_BEATS = 8;
+const NUMBER_OF_SUBBEATS = 2;
+const COUNT_LIMIT = NUMBER_OF_BEATS * NUMBER_OF_SUBBEATS;
 
-console.log('sdfa')
+
+
+document.querySelector('#app').innerHTML = `
+<h1 id="title">0</h1>
+<div class="input-container">
+  <input type="range" id="numinput-slider" value="250" min="40" max="250" step="5"/>
+  <input type="number" id="numbox"  value="250" />
+</div>
+<button id="toggleplay">Play</button>
+
+`;
+const numinput = document.getElementById('numinput-slider');
+const titulo = document.getElementById('title');
+const numbox = document.getElementById('numbox');
+const togglePlay = document.getElementById('toggleplay')
+
+let count = 0;
+let time = numinput.value;
+let realBpm = ((MINUTE_IN_MS)/time)/NUMBER_OF_SUBBEATS;
+let isPlaying = false
+let timer = null
 
 numinput.addEventListener('input', (e) => {
   time = e.target.value;
+  numbox.value = e.target.value
+  realBpm = ((MINUTE_IN_MS)/time)/NUMBER_OF_SUBBEATS;
+  if(isPlaying) {
+    clearInterval(timer)
+    timer = setInterval(tick, realBpm)
+  }
 });
 
-var count = 0,
-time = numinput.value;
+togglePlay.addEventListener('click',() => {
+  count = 0
+  if(isPlaying) {
+    togglePlay.innerHTML = 'Play'
+    clearInterval(timer)
+  } else {
+    togglePlay.innerHTML = 'Stop'
+    // tick()
+    timer = setInterval(tick, realBpm)
+  }
+  isPlaying = !isPlaying
+})
 
+const tick = () => {
 
-console.log(musicArray)
-
-
-
-function timeout() {
-  setTimeout(function () {
-    if (count === 16) {
-      count = 0;
-    }
-    musicArray[count].fun()
-    
-    
-    count += 1;
-    titulo.innerHTML = count%2===0 ? titulo.innerHTML : (count+1)/2;
-
-
-    timeout();
-  }, ((60*1000)/time)/2);
+  if (count === COUNT_LIMIT) {
+    count = 0;
+  }
+  musicArray[count].fun()
+  
+  count++;
+  titulo.innerHTML = count % 2 === 0 ? titulo.innerHTML : (count+1)/2;
 }
-timeout();
 
-
-
-
-
-setupCounter(document.querySelector('#counter'))
